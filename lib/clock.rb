@@ -14,12 +14,14 @@ module Clockwork
 
 	def notify_for_new_releases
 		unlisted = Release.unlisted
-		puts "searching #{unlisted.count}"
-		unlisted.each do |release|
-			if release.has_new_listing?
-				puts "Release #{release.title || release.release_id} has a new listing"
-				NotifierMailer.notify(release).deliver_now
-				Blower.send_sms "New listing for http://www.discogs.com/release/#{@release.release_id}"
+		if Rails.env.production?
+			puts "searching #{unlisted.count}"
+			unlisted.each do |release|
+				if release.has_new_listing?
+					puts "Release #{release.title || release.release_id} has a new listing"
+					NotifierMailer.notify(release).deliver_now
+					Blower.send_sms "New listing for http://www.discogs.com/release/#{@release.release_id}"
+				end
 			end
 		end
 	end

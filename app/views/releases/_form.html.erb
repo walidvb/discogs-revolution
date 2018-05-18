@@ -16,8 +16,15 @@
     <%= form.text_field :release_id %>
   </div>
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    
+    <table>
+      <% %W{release master label}.each do |type| %>
+        <tr>
+          <td><%= radio_button_tag('release[type_]', type) %>  </td>
+          <td><%= label_tag("release[type_]_#{type}", type) %>  </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 
   <div class="actions">

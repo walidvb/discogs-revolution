@@ -1,7 +1,7 @@
 module DiscogsScraper
     
     def self.search_listings release
-        url = "https://www.discogs.com/sell/list?release_id=#{release.release_id}"
+        url = "https://www.discogs.com/sell/list?#{release.type}_id=#{release.release_id}"
         res = HTTParty.get(url, headers: {'Authorization' => 'Discogs token=NZtzIGEbtLplwOuxnsLAiRrIhztnjJUdGTVJVAgQ', 'User-Agent' => 'DiscogsMarketAPI/1.0'})
         body = Nokogiri::HTML(res.body)
         items = self.processBody(body)
