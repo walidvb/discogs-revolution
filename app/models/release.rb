@@ -4,6 +4,11 @@ class Release < ApplicationRecord
     validates_uniqueness_of :release_id
     
     scope :unlisted, ->{where(listings_count: 0)}
+
+    def index
+        @releases = Release.all.order('lowest_price DESC')
+    end
+
     def has_new_listing?
         listings = DiscogsScraper.search_listings self
         self.listings_count = listings.count

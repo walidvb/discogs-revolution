@@ -8,6 +8,7 @@
       <th>Release</th>
       <th>Artist</th>
       <th>For Sale</th>
+      <th>Lowest Price</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}") %></td>
         <td><%= release.artist %></td>
         <td><%= release.listings_count %></td>
+        <td><%= release.lowest_price %></td>
         <td><%= link_to 'Show', release %></td>
         <td><%= link_to 'Edit', edit_release_path(release) %></td>
         <td><%= link_to 'See Listings', release_search_listings_path(release) %></td>
