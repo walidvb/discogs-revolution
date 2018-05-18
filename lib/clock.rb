@@ -17,7 +17,7 @@ module Clockwork
 		puts "searching #{unlisted.count}"
 		unlisted.each do |release|
 			if release.has_new_listing?
-				puts "Release #{release.title || release.release_id} has a new listing"
+				puts "Release #{release.title || release.release_id} has a new listing"
 				NotifierMailer.notify(release).deliver_now
 			end
 		end
