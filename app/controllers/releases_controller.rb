@@ -4,10 +4,6 @@ class ReleasesController < ApplicationController
   def search_listings
     release = Release.find(params[:release_id])
     @listings = DiscogsScraper.search_listings release
-    if !@listings.empty?
-      puts "=============="
-      NotifierMailer.notify(release).deliver_now
-    end
   end
 
   # GET /releases

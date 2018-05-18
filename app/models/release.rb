@@ -1,14 +1,11 @@
 class Release < ApplicationRecord
 
-    def has_listings?
+    scope :unlisted, ->{where(listings_count: 0)}
+
+    def has_new_listing?
         listings = DiscogsScraper.search_listings self
-        has_some = listings.empty?
-        if has_some
-            self.listings_count = listings.count
-            self.save!
-            return true
-        else
-            return false
-        end
+        self.listings_count = listings.count
+        self.save!
+        return self.listings_count  > 0
     end
 end
