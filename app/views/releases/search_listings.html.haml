@@ -1,0 +1,7 @@
+%ul
+    - @listings.each do |listing|
+        %li
+            = listing[:condition_sleeve]
+            = listing[:seller]
+            = listing[:ships_from]
+            = listing[:price]

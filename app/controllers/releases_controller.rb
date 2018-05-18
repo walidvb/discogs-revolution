@@ -3,8 +3,7 @@ class ReleasesController < ApplicationController
 
   def search_listings
     release = Release.find(params[:release_id])
-    results = DiscogsScraper.search_listings release
-    render html: body
+    @listings = DiscogsScraper.search_listings release
   end
 
   # GET /releases
