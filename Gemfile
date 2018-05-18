@@ -43,7 +43,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :production do 
   gem 'pg'
   gem 'clockwork'
-  gem 'rack-wwwhisper', '~> 1.0'
 end
 
 group :development, :test do
