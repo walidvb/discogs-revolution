@@ -16,7 +16,7 @@
   <tbody>
     <% @releases.each do |release| %>
       <tr>
-        <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}") %></td>
+        <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}", target="_blank") %></td>
         <td><%= release.artist %></td>
         <td><%= release.listings_count %></td>
         <td><%= release.lowest_price %></td>
