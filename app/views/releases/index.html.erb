@@ -13,7 +13,7 @@
   <tbody>
     <% @releases.each do |release| %>
       <tr>
-        <td><%= release.release_id %></td>
+        <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}") %>(<%= release.release_id %>)</td>
         <td><%= link_to 'Show', release %></td>
         <td><%= link_to 'Edit', edit_release_path(release) %></td>
         <td><%= link_to 'Listings', release_search_listings_path(release) %></td>

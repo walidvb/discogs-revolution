@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_18_135528) do
+ActiveRecord::Schema.define(version: 2018_05_18_143249) do
 
   create_table "releases", force: :cascade do |t|
     t.integer "release_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "listings_count"
+    t.string "title"
   end
 
 end
