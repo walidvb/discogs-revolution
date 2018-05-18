@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # https://devcenter.heroku.com/articles/wwwhisper#enabling-wwwhisper-middleware-for-a-rails-application
+  config.middleware.insert 0, Rack::WWWhisper
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
