@@ -8,13 +8,14 @@ module Clockwork
     puts "Running #{job}"
   end
 
-	every(1.minute, 'Sending stave releases first', at: '00:00') do
+	every(1.minute, 'Checking releases') do
 		notify_for_new_releases
 	end
 
 	def notify_for_new_releases
-		Release.unlisted.each do |release|
-			puts "Running job"
+		unlisted = Release.unlisted
+		puts "searching #{unlisted.count}"
+		unlisted.each do |release|
 			if release.has_new_listing?
 				puts "Release #{release.title || release.release_id} has a new listing"
 				NotifierMailer.notify(release).deliver_now
