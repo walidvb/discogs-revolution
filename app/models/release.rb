@@ -8,8 +8,4 @@ class Release < ApplicationRecord
         self.save!
         return self.listings_count  > 0
     end
-
-    def notify_new_listing!
-        NotifierMailer.notify(self).deliver_now
-    end
 end
