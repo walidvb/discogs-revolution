@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Release</th>
+      <th>Artist</th>
+      <th>For Sale</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,10 +15,12 @@
   <tbody>
     <% @releases.each do |release| %>
       <tr>
-        <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}") %>(<%= release.release_id %>) – <%= release.listings_count %> listings</td>
+        <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}") %></td>
+        <td><%= release.artist %></td>
+        <td><%= release.listings_count %></td>
         <td><%= link_to 'Show', release %></td>
         <td><%= link_to 'Edit', edit_release_path(release) %></td>
-        <td><%= link_to 'Listings', release_search_listings_path(release) %></td>
+        <td><%= link_to 'See Listings', release_search_listings_path(release) %></td>
         <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

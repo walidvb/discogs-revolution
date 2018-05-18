@@ -7,6 +7,11 @@ module DiscogsScraper
         items = self.processBody(body)
     end
     
+    def self.get_details id
+        res = HTTParty.get "https://api.discogs.com/releases/#{id}"
+        JSON.parse(res.body)
+    end
+
     def self.processBody doc
         items = []
         doc.css('.shortcut_navigable').each do |item_source|
