@@ -8,7 +8,7 @@ module Clockwork
     puts "Running #{job}"
   end
 
-	every(1.minute, 'Checking releases', at: '00:00') do
+	every(1.minute, 'Checking releases', at: "#{Time.now.hour}:#{Time.now.min}") do
 		notify_for_new_releases
 	end
 
