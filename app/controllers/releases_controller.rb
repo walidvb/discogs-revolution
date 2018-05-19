@@ -10,6 +10,7 @@ class ReleasesController < ApplicationController
   # GET /releases.json
   def index
     @releases = Release.all
+    @release = Release.new
   end
 
   # GET /releases/1
