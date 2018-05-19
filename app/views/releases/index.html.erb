@@ -16,7 +16,7 @@
   <tbody>
     <% @releases.each do |release| %>
       <tr>
-        <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}", target="_blank") %></td>
+        <td><%= link_to(release.title, "http://www.discogs.com/release/#{release.release_id}", target: "_blank") %></td>
         <td><%= release.artist %></td>
         <td><%= release.listings_count %></td>
         <td><%= release.lowest_price %></td>
@@ -31,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Release', new_release_path %>
+<%= render 'form', release: @release %>
